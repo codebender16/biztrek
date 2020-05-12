@@ -4,7 +4,7 @@ class CreateCourses < ActiveRecord::Migration[6.0]
       t.string :title
       t.string :sub_title
       t.text :description
-      t.int :price
+      t.integer :price
 
       t.timestamps
     end
