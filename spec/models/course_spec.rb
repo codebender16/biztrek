@@ -21,13 +21,17 @@ RSpec.describe Course, type: :model do
     # need to test many to many relationship. courses has many categories through courses_categories
     # should i use respond_to or reflect_on_association
 
+    it 'has many users through orders' do
+      relation = Course.reflect_on_association(:users)
+      expect(relation.macro).to eql(:has_many)
+    end
+
   end
 
+  context '#display_currency' do
+    it 'converts the price to the string format' do
+      expect(subject.display_currency).to eql('$500.00')
+    end
 
-  # context '#display_currency' do
-  #   it 'converts the price to the string format' do
-  #     expect(subject.display_currency).to eql('$5.00')
-  #   end
-
-  # end
+  end
 end

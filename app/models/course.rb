@@ -1,5 +1,11 @@
 class Course < ApplicationRecord
   belongs_to :mentor
-  has_many :courses_categories
+  has_many :orders, dependent: :destroy
+  has_many :users, through: :orders
+  has_many :courses_categories, dependent: :destroy
   has_many :categories, through: :courses_categories
+
+  def display_currency
+    '$' + sprintf('%.2f', (self.price))
+  end
 end

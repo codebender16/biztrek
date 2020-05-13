@@ -15,11 +15,20 @@ RSpec.describe User, type: :model do
       subject.last_name = nil
       expect(subject).to_not be_valid
     end
+
+  end
+
+  context 'associations' do 
+    it 'should have many courses' do
+      relation = User.reflect_on_association(:courses) 
+      expect(relation.macro).to eql(:has_many) 
+    end
+  end
     
     # it 'is not valid without selecting type of user' do
     #   subject.is_mentor? = ''
     #   expect(subject).to_not be_valid
     # end
 
-  end
+  
 end

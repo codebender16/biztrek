@@ -9,6 +9,7 @@ RSpec.describe Category, type: :model do
       expect(relation.macro).to eql(:has_many) 
     end
 
+
     # need to test the relationship between categories and courses through joined table
 
   end
