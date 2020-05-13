@@ -14,7 +14,7 @@ RSpec.describe Course, type: :model do
     end
 
     it 'has many categories through courses_categories' do
-      relation = Course.reflect_on_association(:categories)
+      relation = Course.reflect_on_association(:courses_categories)
       expect(relation.macro).to eql(:has_many)
     end
 
