@@ -57,9 +57,9 @@ class CoursesController < ApplicationController
 
       if course == nil
         redirect_to courses_path
-        flash[:notice] = "Sorry, the course you are looking for doesn't exist"
+        flash[:alert] = "Sorry, the course you are looking for doesn't exist"
       end
     end
-  end
+
 
 end

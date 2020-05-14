@@ -1,9 +1,6 @@
-<%# <%= link_to 'Add a new product', new_product_path %>
-<h1>Hello</h1>
-<%= link_to 'Sign Up', new_user_registration_path %>
-
-<% if user_signed_in? %>
-  <%= current_user.first_name %>
-<% end %>
-
-<%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+<div class="row justify-content-around">
+  <% @courses.each do |course| %>
+    <%= render 'card', course: course %>
+  <% end %>
+  
+</div>
