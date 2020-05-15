@@ -1,5 +1,6 @@
 class Course < ApplicationRecord
   belongs_to :mentor
+  has_one_attached :image
   has_many :orders, dependent: :destroy
   has_many :users, through: :orders
   has_many :courses_categories, dependent: :destroy
