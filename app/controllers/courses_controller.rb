@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_course, only: [:show, :edit, :update, :destroy] 
   load_and_authorize_resource
   
@@ -53,9 +53,9 @@ class CoursesController < ApplicationController
     end
 
     def set_course
-      @course = Course.find(params[:id])
+      @course = Course.find_by_id(params[:id])
 
-      if course == nil
+      if @course == nil
         redirect_to courses_path
         flash[:alert] = "Sorry, the course you are looking for doesn't exist"
       end
