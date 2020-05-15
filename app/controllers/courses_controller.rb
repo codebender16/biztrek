@@ -38,10 +38,11 @@ class CoursesController < ApplicationController
 
   end
 
-  def delete
+  def destroy
+    
     @course.destroy
-
     redirect_to courses_path
+    flash[:notice] = "#{@course.title} has been deleted"
   end
 
 
