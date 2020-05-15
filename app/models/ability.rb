@@ -14,7 +14,7 @@ class Ability
         if user.is_admin? # for admin
           can :manage, :all
         elsif user.is_mentor? # for mentor
-          can :crud, Course, user_id: user.id
+          can :crud, Course, mentor_id: user.mentor.id
         end
 
       end
