@@ -21,13 +21,13 @@ class CoursesController < ApplicationController
     #   @course = current_user.mentor.courses.create(course_params)
     # end
     #########
-    @course = current_user.mentor.courses.create(course_params)
+    @course = current_user.courses.create(course_params)
 
 
     if @course.errors.any?
       render :new
     else
-      @coure.save
+      @course.save
       flash[:success] = "You successfully created a new listing!"
       redirect_to @course
     end 

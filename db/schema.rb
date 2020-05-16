@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_15_095631) do
+ActiveRecord::Schema.define(version: 2020_05_16_121933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(version: 2020_05_15_095631) do
     t.integer "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "mentor_id", null: false
-    t.index ["mentor_id"], name: "index_courses_on_mentor_id"
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
   create_table "courses_categories", force: :cascade do |t|
@@ -128,7 +128,7 @@ ActiveRecord::Schema.define(version: 2020_05_15_095631) do
   add_foreign_key "carts", "users"
   add_foreign_key "carts_courses", "carts"
   add_foreign_key "carts_courses", "courses"
-  add_foreign_key "courses", "mentors"
+  add_foreign_key "courses", "users"
   add_foreign_key "courses_categories", "categories"
   add_foreign_key "courses_categories", "courses"
   add_foreign_key "mentors", "users"
