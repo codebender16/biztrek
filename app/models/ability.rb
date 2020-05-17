@@ -11,7 +11,11 @@ class Ability
       if user.present? # for users
         can :read, :all
 
-        if user.is_mentor? # for mentor
+        if user.is_student?
+          can :read, Course
+          # can :crud, Cart, cart_id: user.cart.id
+          # can :crud, Testimonial, order_id: user.order.id
+        elsif user.is_mentor? # for mentor
           can :crud, Course, mentor_id: user.mentor.id
         elsif user.is_admin? # for admin
           can :manage, :all
