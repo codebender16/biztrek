@@ -1,7 +1,7 @@
 <div class="row content mt-3">
-  <%# <div class="col-md-4">
-    <%= image_tag image_for(@restaurant) , alt: "#{@restaurant.name} image", class: 'mt-2', style: 'width:100%;' %>
-  <%# </div> %>
+  <div class="col-md-4">
+    <%= image_tag image_for(@course) , alt: "#{@course.title} image", class: 'mt-2', style: 'width:100%;' %>
+  </div> 
   <div class="col-md-8">
     <h1><%= @course.title %></h1>
     <div>
@@ -10,7 +10,7 @@
     </div>
     <div>
       <strong>Price:  </strong>
-      <span><%= @course.price %></span>
+      <span><%= number_to_currency(@course.price) %></span>
     </div>
     <p><%= @course.description %></p>
 

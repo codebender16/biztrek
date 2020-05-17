@@ -13,5 +13,5 @@ class User < ApplicationRecord
   # has_many :courses, through: :orders
   has_many :testimonials
   # has_many :courses, through: :testimonials
-  has_one :cart
+  has_one :cart, dependent: :destroy
 end
