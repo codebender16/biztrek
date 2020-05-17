@@ -6,7 +6,7 @@
   </button>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && !current_user.is_student? %>
         <%= link_to 'Add Course', new_course_path, class: 'nav-item nav-link active' %>
       <% end %> 
     </div>
