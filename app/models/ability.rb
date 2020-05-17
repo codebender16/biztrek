@@ -16,7 +16,7 @@ class Ability
           # can :crud, Cart, cart_id: user.cart.id
           # can :crud, Testimonial, order_id: user.order.id
         elsif user.is_mentor? # for mentor
-          can :crud, Course, mentor_id: user.mentor.id
+          can :crud, Course, user_id: user.id
         elsif user.is_admin? # for admin
           can :manage, :all
         end
