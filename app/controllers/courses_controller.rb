@@ -15,14 +15,7 @@ class CoursesController < ApplicationController
   end
 
   def create
-    # if current_user.is_admin? # in the future will need to create a different form for admin to create
-    #   @course = current_user.create_mentor.courses.create(course_params)
-    # elsif current_user.is_mentor?
-    #   @course = current_user.mentor.courses.create(course_params)
-    # end
-    #########
     @course = current_user.courses.create(course_params)
-
 
     if @course.errors.any?
       render :new
@@ -31,12 +24,6 @@ class CoursesController < ApplicationController
       flash[:success] = "You successfully created a new listing!"
       redirect_to @course
     end 
-
-    # if @course.save
-    #   redirect_to @course
-    # else
-    #   render :new
-    # end
 
   end
 
