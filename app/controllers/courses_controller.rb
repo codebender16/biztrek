@@ -15,13 +15,28 @@ class CoursesController < ApplicationController
   end
 
   def create
-    @course = Course.new(course_params)
+    # if current_user.is_admin? # in the future will need to create a different form for admin to create
+    #   @course = current_user.create_mentor.courses.create(course_params)
+    # elsif current_user.is_mentor?
+    #   @course = current_user.mentor.courses.create(course_params)
+    # end
+    #########
+    @course = current_user.courses.create(course_params)
 
-    if @course.save
-      redirect_to @course
-    else
+
+    if @course.errors.any?
       render :new
-    end
+    else
+      @course.save
+      flash[:success] = "You successfully created a new listing!"
+      redirect_to @course
+    end 
+
+    # if @course.save
+    #   redirect_to @course
+    # else
+    #   render :new
+    # end
 
   end
 
@@ -49,7 +64,7 @@ class CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:title, :sub_title, :description, :price)
+      params.require(:course).permit(:title, :sub_title, :description, :price, :image)
     end
 
     def set_course
