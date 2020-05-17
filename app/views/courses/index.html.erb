@@ -1,6 +1,8 @@
+<%= render 'shared/banner' %>
+
 <div class="row justify-content-around">
   <% @courses.each do |course| %>
-    <%= render 'card', course: course %>
+    <%= render 'shared/card', course: course %>
   <% end %>
   
 </div>

@@ -14,16 +14,18 @@
     </div>
     <p><%= @course.description %></p>
 
+    <!-- only show edit and delete buttons when user has the power to edit the object -->
     <% if can? :edit, @course %> 
     <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-info'%>
     <%= link_to 'Delete', course_path(@course), method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete #{@course.title}?"} %>
     <% end %>
-    <% if user_signed_in? && current_user.is_student? %>
-    <%= link_to "Pay Deposit", "", id: "stripe", class: 'btn btn-light' %>
+
+    <!-- only show this button user is signed in as a student and has not bought this course yet -->
+    <% if user_signed_in? && @current_user.is_student? && @course.user.id != current_user.id %>
+    <%= link_to "Add to cart", carts_path(course_id: @listing.id), method: :post  %>
     <% end %>
 
     <%= link_to 'Back', courses_path, class: 'btn btn-primary' %> 
   </div>
 </div>
 
-<%= javascript_pack_tag "stripe" %>
