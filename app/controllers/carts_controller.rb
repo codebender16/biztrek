@@ -3,18 +3,26 @@ class CartsController < ApplicationController
   # to show all cart items
   def index
     if user_signed_in? && current_user.cart && current_user.is_student?
-      @cart = current_user.cart.courses
+      @cart_items = cart_items # all items in the cart
+      @total_costs = cart_total # total costs of current items in the cart
     else  
       redirect_to courses_path
     end
   end
 
-  # total items in the cart
-  def total_items
-    @total_items = current_user.cart.courses.count
+  # items in the cart
+  def cart_items
+    current_user.cart.courses
   end
 
-  # total price in the cart? if Harrison/Eddie does not approve having it in the helper
+  # sums up the price of all items currently in the cart
+  def cart_total
+    sum = 0
+    @cart_items.each do |course|
+      sum += (course.price * 1)
+    end
+    return sum
+  end
 
   # add course into cart 
   def create 
@@ -35,8 +43,9 @@ class CartsController < ApplicationController
   # error - no route matches DELETE /carts
   # currently there is no ID to track, that is why, there is no route matching with delete. need to find a way
   def destroy # if i use @course, will it destroy the original course as well?
-    @course = Cart.find(params[:course_id])
-    @course.destroy 
+    @courses = current_user.cart.carts_courses.where(course_id: params[:course_id])
+    # raise
+    @courses.first.destroy
 
     redirect_to carts_path
   end
