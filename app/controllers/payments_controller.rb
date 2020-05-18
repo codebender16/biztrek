@@ -13,7 +13,7 @@ class PaymentsController < ApplicationController
 
     # p "course id " + course_id
     # p "user id " + user_id
-
+    
     head 200
   end
 
