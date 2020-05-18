@@ -33,7 +33,7 @@ class CartsController < ApplicationController
     end
 
     @course = Course.find(params[:course_id]) # why cant we pass an object here instead, for eg) @course.id
-    @cart.courses << @course
+    @cart.courses << @course # this essentially create a joined table 
     flash[:success] = "Successfully added #{@course.title} to cart"
 
     redirect_to courses_path
