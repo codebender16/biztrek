@@ -11,8 +11,8 @@ class PaymentsController < ApplicationController
     course_ids = payment.metadata.course_id
     user_id = payment.metadata.user_id
 
-    p "course id " + course_ids
-    p "user id " + user_id
+    # p "course id " + course_ids
+    # p "user id " + user_id
     
     cart = User.find(user_id).cart
     cart.carts_courses.each do |course|
