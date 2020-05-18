@@ -12,8 +12,8 @@ class Course < ApplicationRecord
   has_many :categories, through: :courses_categories
   has_many :testimonials
   # has_many :users, through: :testimonials
-  # has_many :carts_courses
-  # has_many :carts, through: :carts_courses
+  has_many :carts_courses
+  has_many :carts, through: :carts_courses
 
   def display_currency
     '$' + sprintf('%.2f', (self.price))
