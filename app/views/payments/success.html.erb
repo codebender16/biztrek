@@ -1,3 +1,7 @@
-<h1>You successfully purchased <%= @course.title %></h1>
+<% @courses.each do |course| %>
 
-<h3>You paid <%= number_to_currency(@course.price) %></h3>
+<h1>You successfully purchased <%= course.title %></h1>
+
+<h3>You paid <%= number_to_currency(course.price) %></h3>
+
+<% end %>

@@ -2,7 +2,13 @@ Rails.application.routes.draw do
   devise_for :users
   resources :courses
   root 'courses#index'
-  resources :carts, only: [:create, :index, :destroy]
+  resources :carts, only: [:create, :index] do 
+    # collection is for plurals has_many relationship - does not require id
+    # member is for singular - has id
+    collection do
+      delete('/remove', to: 'carts#destroy')
+    end
+  end
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"
