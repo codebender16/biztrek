@@ -2,7 +2,7 @@ class CartsController < ApplicationController
 
   # to show all cart items
   def index
-    if user_signed_in? && current_user.cart && current_user.is_student?
+    if user_signed_in? && current_user.cart && !current_user.is_mentor?
       @cart_items = cart_items # all items in the cart
       @total_costs = cart_total # total costs of current items in the cart
     else  
@@ -26,7 +26,7 @@ class CartsController < ApplicationController
 
   # add course into cart 
   def create 
-    if current_user.is_student? && !current_user.cart
+    unless current_user.is_mentor? && current_user.cart
       @cart = current_user.create_cart
     else
       @cart = current_user.cart
