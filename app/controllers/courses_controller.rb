@@ -8,7 +8,7 @@ class CoursesController < ApplicationController
   end
 
   def show
-    
+
   end
 
   def new
@@ -63,6 +63,5 @@ class CoursesController < ApplicationController
         flash[:alert] = "Sorry, the course you are looking for doesn't exist"
       end
     end
-
 
 end

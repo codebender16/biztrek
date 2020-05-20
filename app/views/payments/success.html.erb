@@ -1,8 +1,8 @@
-<%= @courses.inspect %>
+<h1>Your Order History</h1>
 
 <% @courses.each do |course| %>
 
-<h1>You successfully purchased <%= course.title %></h1>
+<h3>Purchased course: <%= course.title %></h3>
 
 <h3>You paid <%= number_to_currency(course.price) %></h3>
 
