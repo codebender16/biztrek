@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'orders/index'
   devise_for :users
   resources :courses
+  resources :mentors
   root 'courses#index'
   resources :carts, only: [:create, :index] do 
     # collection is for plurals has_many relationship - does not require id

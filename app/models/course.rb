@@ -1,5 +1,5 @@
 class Course < ApplicationRecord
-  validates :title, :sub_title, presence: true
+  validates :title, :sub_title, presence: true, length: { minimum: 5, message: 'and sub title need to be more than 5 letters'}
   validates :description, presence: true, length: { minimum: 10 , message: 'Please enter more than 10 letters'}
   validates :price, numericality: { message: "%{value} is not valid. Please enter numbers only"}
   # validates :image, presence: true

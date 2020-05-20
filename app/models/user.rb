@@ -14,10 +14,13 @@ class User < ApplicationRecord
   has_one :cart, dependent: :destroy
 
   def update_role
-    if self.is_mentor 
-      self.is_student = false
-    else
-      self.is_student = true
+  unless self.is_admin
+      if self.is_mentor 
+        self.is_student = false
+      else
+        self.is_student = true
+      end
     end
   end
+
 end
