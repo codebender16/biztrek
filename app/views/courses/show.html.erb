@@ -20,11 +20,8 @@
     <%= link_to 'Edit', edit_course_path(@course), class: 'btn btn-info'%>
     <%= link_to 'Delete', course_path(@course), method: :delete, class: 'btn btn-danger', data: { confirm: "Are you sure you want to delete #{@course.title}?"} %>
     <% end %>
-
-    <!-- only show this button user is signed in as a student and has not bought this course yet -->
-    <%= @course.user.inspect %>
     
-    <% if user_signed_in? && current_user.is_student? %>
+    <% if user_signed_in? && current_user.is_student? && !purchased_courses(@course)  %>
     <%= link_to "Add to cart", carts_path(course_id: @course.id), method: :post  %>
     <% end %>
 
