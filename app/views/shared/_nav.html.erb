@@ -16,11 +16,16 @@
         <%= link_to 'Register', new_user_registration_path, class: 'btn btn-outline-success ml-1' %>
         <%= link_to 'Login', new_user_session_path, class: 'btn btn-outline-success ml-1' %>
       <% else %>
-        <% if current_user.is_student? || current_user.is_admin? %>
+        <% if current_user.is_student? %>
           <%= link_to 'My Purchases', orders_path, class: 'btn btn-outline-success ml-1' %>
           <%= link_to "Cart", carts_path, class: "btn btn-outline-secondary" %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
-        <% else %>
+        <% elsif current_user.is_mentor? %>
+          <%= link_to 'My Courses', mentors_path, class: 'btn btn-outline-success ml-1' %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
+        <% elsif current_user.is_admin? %>
+          <%= link_to 'My Purchases', orders_path, class: 'btn btn-outline-success ml-1' %>
+          <%= link_to "Cart", carts_path, class: "btn btn-outline-secondary" %>
           <%= link_to 'My Courses', mentors_path, class: 'btn btn-outline-success ml-1' %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-outline-danger ml-1' %>
         <% end %>
