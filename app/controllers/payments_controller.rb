@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
-  def success 
+  def success
     @courses = current_user.cart.courses
   end 
 
@@ -11,15 +11,15 @@ class PaymentsController < ApplicationController
     course_ids = payment.metadata.course_id
     user_id = payment.metadata.user_id
 
-    # p "course id " + course_ids
-    # p "user id " + user_id
-    
     cart = User.find(user_id).cart
     cart.carts_courses.each do |course|
-      Order.create(user_id: user_id, course_id: course.id)
+      # p user_id
+      p course.id
+      Order.create(user_id: user_id, course_id: course.course_id)
+      # p course.id
+      # p order.errors
       course.destroy
     end
-
     head 200
   end
 

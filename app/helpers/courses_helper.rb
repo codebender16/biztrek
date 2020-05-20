@@ -1,4 +1,5 @@
 module CoursesHelper
+
     def image_for(course)
     if course.image.present?
         course.image
@@ -6,4 +7,5 @@ module CoursesHelper
       'biztrek_default.jpg'
     end
   end
+
 end
