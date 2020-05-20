@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       delete('/remove', to: 'carts#destroy')
     end
   end
+  resources :orders, only: [:index, :show] 
   get "/payments/session", to: "payments#get_stripe_id"
   get "/payments/success", to: "payments#success"
   post "/payments/webhook", to: "payments#webhook"

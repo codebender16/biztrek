@@ -12,7 +12,7 @@ class CartsController < ApplicationController
 
   # items in the cart
   def cart_items
-    current_user.cart.courses
+    current_user.cart.courses.includes(image_attachment: :blob)
   end
 
   # sums up the price of all items currently in the cart
@@ -40,9 +40,7 @@ class CartsController < ApplicationController
     
   end
 
-  # error - no route matches DELETE /carts
-  # currently there is no ID to track, that is why, there is no route matching with delete. need to find a way
-  def destroy # if i use @course, will it destroy the original course as well?
+  def destroy 
     @courses = current_user.cart.carts_courses.where(course_id: params[:course_id])
     # raise
     @courses.first.destroy
