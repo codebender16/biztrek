@@ -25,7 +25,7 @@ user_1.create_cart
     sub_title: Faker::Educator.course_name, 
     price: rand(100..5000), 
     description: Faker::Marketing.buzzwords,
-    user_id: User.all.sample.id
+    user_id: rand(1..3)
   )
   # Sample image
   course.image.attach(io: File.open("app/assets/images/biztrek_default.jpg"), filename: "biztrek_default.jpg", content_type: "image/jpg")

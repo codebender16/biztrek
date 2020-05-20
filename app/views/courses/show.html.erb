@@ -22,7 +22,9 @@
     <% end %>
 
     <!-- only show this button user is signed in as a student and has not bought this course yet -->
-    <% if user_signed_in? && !current_user.is_mentor? && @course.user.id != current_user.id %>
+    <%= @course.user.inspect %>
+    
+    <% if user_signed_in? && current_user.is_student? %>
     <%= link_to "Add to cart", carts_path(course_id: @course.id), method: :post  %>
     <% end %>
 
