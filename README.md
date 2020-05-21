@@ -27,6 +27,30 @@ This is where BizTrek can helps bridge the gap. With many business pioneers who 
 [Heroku](https://biztrek.herokuapp.com/)
 [GitHub](https://github.com/codebender16/biztrek)
 
+## Running the app
+---
+
+In order to run the app successfully, you will need to run the following after cloning the project from github.
+
+    yarn install 
+
+Then, set up a stripe account (link provided in third-party integration section) if you don't have one already. 
+
+Obtain the **publishable keys** and **secret keys**
+
+screenshot 
+
+
+Then, run on rails terminal
+
+    EDITOR="code --wait" rails credentials:edit
+
+Add your keys into the credential file and voila!
+
+    stripe:
+    secret_key: { your secret key }
+    public_key: { your public key }
+
 ## Purpose
 ---
 - to encourage more people to get into business
