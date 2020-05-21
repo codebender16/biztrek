@@ -38,8 +38,7 @@ Then, set up a stripe account (link provided in third-party integration section)
 
 Obtain the **publishable keys** and **secret keys**
 
-screenshot 
-
+![Stripe](app/assets/readme/stripe%20set%20up.png) 
 
 Then, run on rails terminal
 
