@@ -94,6 +94,7 @@ Add your keys into the credential file and voila!
 - Jquery
 - JavaScript
 - Stripe
+- Amazon s3
 - Notion
 - Heroku
 
