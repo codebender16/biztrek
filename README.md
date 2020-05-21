@@ -23,9 +23,9 @@ This is where BizTrek can helps bridge the gap. With many business pioneers who 
 
 ## Links
 
+- [Heroku](https://biztrek.herokuapp.com/)
 
-[Heroku](https://biztrek.herokuapp.com/)
-[GitHub](https://github.com/codebender16/biztrek)
+- [GitHub](https://github.com/codebender16/biztrek)
 
 ## Running the app
 
