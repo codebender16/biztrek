@@ -24,8 +24,9 @@ This is where BizTrek can helps bridge the gap. With many business pioneers who 
 ## Links
 
 
-[Heroku](https://biztrek.herokuapp.com/)
-[GitHub](https://github.com/codebender16/biztrek)
+- [Heroku](https://biztrek.herokuapp.com/)
+
+- [GitHub](https://github.com/codebender16/biztrek)
 
 ## Running the app
 
@@ -38,8 +39,7 @@ Then, set up a stripe account (link provided in third-party integration section)
 
 Obtain the **publishable keys** and **secret keys**
 
-screenshot 
-
+![stripe](app/assets/readme/stripe%20set%20up.png)
 
 Then, run on rails terminal
 
