@@ -6,7 +6,7 @@ BizTrek is a mentorship marketplace application that builds the bridge between e
 2. Aspiring Entrepreneurs (Students)
 
 ## Problem
----
+
 " It could be an idea you had from many years ago, but was never executed. Many years after, you stumbled upon a product that feels familiar and you go, I thought about that idea "
 
 More often than not, aspiring entrepreneurs always find themselves in that situation. There could be many reasons and circumstances that prevent the ideas they had from being executed.
@@ -22,13 +22,13 @@ Not everyone is born with a wealth of resources ready to be utilised and not eve
 This is where BizTrek can helps bridge the gap. With many business pioneers who are passionate in helping others grow, BizTrek acts as a platform for the two sides to meet. Business pioneers would be able to share their strategies and experiences in a familiar industry through developing educational courses on our platform. Business pioneers would be referred as mentor and aspiring entrepreneurs would be referred as students or mentees.
 
 ## Links
----
+
 
 [Heroku](https://biztrek.herokuapp.com/)
 [GitHub](https://github.com/codebender16/biztrek)
 
 ## Running the app
----
+
 
 In order to run the app successfully, you will need to run the following after cloning the project from github.
 
@@ -51,8 +51,10 @@ Add your keys into the credential file and voila!
     secret_key: { your secret key }
     public_key: { your public key }
 
+Since the local disk is used for development, s3 credentials is not needed. 
+
 ## Purpose
----
+
 - to encourage more people to get into business
 - to help people explore their business ideas
 - to help give a taste of how running business is like
@@ -61,7 +63,7 @@ Add your keys into the credential file and voila!
 - to make running business more accessible to people
 
 ## Functionality and Features
----
+
 **Current features**
 
 1. Sign Up / Log In (Including role selection)
@@ -85,7 +87,11 @@ Add your keys into the credential file and voila!
 
 **Site Map**
 
-[]()
+![BizTrek-sitemap](./app/assets/readme/sitemap.png)
+
+Please visit the link for a better view of the site map.
+
+[Site Map](https://miro.com/app/board/o9J_ksy3qTA=/)
 
 **Tech Stack**
 
@@ -99,7 +105,7 @@ Add your keys into the credential file and voila!
 - Heroku
 
 ## User Stories
----
+
 
 **Admin**
 
@@ -110,29 +116,87 @@ Add your keys into the credential file and voila!
 1. As a mentor, I want to sign up with BizTrek to share my experiences.
 2. As a mentor, I want to log into my account so that I can fill in my details in my profile.
 3. As a mentor, I want to nominate a payment account so that funds can be transferred into my account. 
-4. As a mentor, I want to create a course on BizTrek so that venturers can view, get in touch or purchase my course. 
-5. As a mentor, I want to save as draft  for revision  before I publish my program.
-6. As a mentor, I want to update details in the course or delete the whole program if anything changes. 
-7. As a mentor, I want these fields in the program: title, description, learning outcome and price so that it is more transparent and I can filter out potential questions before the users decide to get in touch.
-8. As a mentor, I would like to automate payments if users want to purchase my course so that I can spend more time preparing the materials for potential users.
+4. As a mentor, I want to create a course on BizTrek so that students can view, get in touch or purchase my course.
+5. As a mentor, I want to be able to view all the courses I have created. 
+6. As a mentor, I want to save as draft  for revision  before I publish my program.
+7. As a mentor, I want to update details in the course or delete the whole program if anything changes. 
+8. As a mentor, I want these fields in the program: title, description, learning outcome and price so that it is more transparent and I can filter out potential questions before the users decide to get in touch.
+9. As a mentor, I would like to automate payments if users want to purchase my course so that I can spend more time preparing the materials for potential users.
 
 **Mentees/Students**
 
-1. As a venturer, I want to be able to view all the courses without having to sign in.
+1. As a student, I want to be able to view all the courses without having to sign in.
 2. I want to sign up for BizTrek so that I can buy courses.
-3. I want to browse specific course so I can read all the details before I consider making a purchase
-4. I want to get in touch with the mentor to gather more information before i make a purchase
-5. I want to set up a payment method so I can pay for the course I want to take 
-6. I want to add to cart so i can edit or delete the item from cart before I finalise my decision
+3. I want to browse specific course so I can read all the details before I consider making a purchase.
+4. I want to get in touch with the mentor to gather more information before i make a purchase.
+5. I want to set up a payment method so I can pay for the course I want to take.
+6. I want to add to cart so i can edit or delete the item from cart before I finalise my decision.
+7. I want to view all the courses I have purchased.
 
 ## Wireframe
----
+
+Note that at the current stage, the app is not focusing on responsiveness although responsive styling are implemented from bootstrap. Hence, there are no mobile wireframe at this point.
+
+### Homepage
+
+![homepage](./app/assets/readme/wireframe/Homepage.png)
+
+### Course Page
+
+![coursepage](./app/assets/readme/wireframe/Card.png)
+
+### Mentor Profile Page (to be implemented)
+
+![mentorprofile](./app/assets/readme/wireframe/Business%20profile%20view.png)
+
+### Profile Edit
+
+![profileedit](./app/assets/readme/wireframe/Profile%20Edit.png)
+
+### Messaging (to be implemented)
+
+![messaging](./app/assets/readme/wireframe/Chat%20window.png)
+
+### Search Results Page (to be implemented)
+
+![search](./app/assets/readme/wireframe/Search%20results.png)
+
+### Category Filter Page (to be implemented)
+
+![filter](./app/assets/readme/wireframe/Category%20search%20on%20click.png)
 
 ## BizTrek Heroku 
----
+
+### Homepage
+
+![homepage](./app/assets/readme/screenshots_app/home.png)
+
+### Course Page
+
+![coursepage](app/assets/readme/screenshots_app/course.png)
+
+### Add Course Form
+
+![addcourseform](app/assets/readme/screenshots_app/create%20course.png)
+
+### Sign Up Page
+
+![signup](app/assets/readme/screenshots_app/sign%20up.png)
+
+### Cart Page
+
+![cart](app/assets/readme/screenshots_app/cart.png)
+
+### Mentor Courses
+
+![mentorcourses](app/assets/readme/screenshots_app/my%20courses.png)
+
 
 ## ERD
----
+
+![ERD](app/assets/readme/erd/erd.png)
+
+[Click this link for full view](https://dbdiagram.io/d/5eb8df6a39d18f5553fefe68)
 
 ## High-level components in BizTrek
 ---
@@ -234,7 +298,7 @@ The relationships between the tables:
 Please see the below for a detailed ERD code I used to generate the database relations.
 
 **Project Biztrek ERD Codef**
-
+```
 Table users {
   id int [pk]
   first_name string
@@ -327,7 +391,7 @@ Table ratings {
   user_id int
   rating float
 }
-
+```
 
 ## Models Associations
 ---
