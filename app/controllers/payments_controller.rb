@@ -1,16 +1,19 @@
 class PaymentsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
 
+  # shows order history for a student if payment is successful
   def success
     @courses = current_user.purchased_courses.order(created_at: :desc)
   end
 
+  # respond back to biztrek app when payment has been made through Stripe
   def webhook
     payment_id = params[:data][:object][:payment_intent]
     payment = Stripe::PaymentIntent.retrieve(payment_id)
     course_ids = payment.metadata.course_id
     user_id = payment.metadata.user_id
 
+    # add user purchases to order history and empties user's cart
     cart = User.find(user_id).cart
     cart.carts_courses.each do |course|
       Order.create(user_id: user_id, course_id: course.course_id)
@@ -20,6 +23,8 @@ class PaymentsController < ApplicationController
     head 200
   end
 
+  # send courses details to stripe to be purchased_courses
+  # directs user to success page after checkout
   def get_stripe_id
     @courses = current_user.cart.courses
 
