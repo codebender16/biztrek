@@ -1,14 +1,26 @@
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
+  <div class="carousel-inner carousel-image-size bleed">
   <!-- insert logic to show only when there are assests set by users / also user can control to display or not-->
     <div class="carousel-item active">
-      <img src="https://www.publish.csiro.au/media/client/EducationResources_WC_Feb20.jpg" class="d-block w-100" alt="Education">
+      <%= image_tag 'banner1.jpg', class: "d-block w-100" %>
+      <%# <div class="carousel-caption d-none d-md-block">
+        <h2 class="text-color">Event: Elon Tusk - How to run business in Mars</h2>
+        <p class="text-color">Happening on 22th of September 2020</p>
+      </div> %>
     </div>
     <div class="carousel-item">
-      <img src="https://www.publish.csiro.au/media/client/EducationResources_WC_Feb20.jpg" class="d-block w-100" alt="Education">
+      <%= image_tag 'banner2.jpg', class: "d-block w-100" %>
+      <%# <div class="carousel-caption d-none d-md-block">
+        <h2 class="text-color">Learn business in your favoured industry</h2>
+        <p class="text-color">Get in touch!</p>
+      </div> %>
     </div>
     <div class="carousel-item">
-      <img src="https://www.publish.csiro.au/media/client/EducationResources_WC_Feb20.jpg" class="d-block w-100" alt="Education">
+      <%= image_tag 'banner3.jpg', class: "d-block w-100" %>
+      <%# <div class="carousel-caption d-none d-md-block">
+        <h2 class="text-color">What are you waiting for?</h2>
+        <p class="text-color">Sign up with us and connect with our mentors who are industry leaders</p>
+      </div> %>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

@@ -9,7 +9,7 @@ class CartsController < ApplicationController
     end
   end
 
-  # items in the cart
+  # all items in the cart
   def cart_items
     current_user.cart.courses.includes(image_attachment: :blob)
   end
@@ -23,7 +23,8 @@ class CartsController < ApplicationController
     return sum
   end
 
-  # add course into cart
+  # check if user has a cart and if user is a student
+  # if conditions fulfilled, use same cart and add course into cart
   def create
     if current_user.is_student? && !current_user.cart
       @cart = current_user.create_cart
@@ -38,6 +39,7 @@ class CartsController < ApplicationController
     redirect_to courses_path
   end
 
+  # remove selected course from user cart 
   def destroy
     @courses = current_user.cart.carts_courses.where(
       course_id: params[:course_id]
