@@ -1,8 +1,8 @@
 <%= render 'shared/banner' %>
-
-<div class="row justify-content-around">
-  <% @courses.each do |course| %>
-    <%= render 'shared/card', course: course %>
-    <% end %>
-  
-</div>
+<%# to add category for courses %>
+<h3>category</h3>
+  <div class="row justify-content-around pt-5">
+    <% @courses.each do |course| %>
+      <%= render 'shared/card', course: course %>
+      <% end %>
+  </div>

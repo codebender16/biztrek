@@ -3,17 +3,21 @@ class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   load_and_authorize_resource
 
+  # show all courses
   def index
     @courses = Course.with_attached_image.all
   end
 
+  # show selected course
   def show
   end
 
+  # this is where user is sent to course creation form
   def new
     @course = Course.new
   end
 
+  # create and save course into database if inputs are valid
   def create
     @course = current_user.courses.create(course_params)
 
@@ -29,6 +33,7 @@ class CoursesController < ApplicationController
   def edit
   end
 
+  # updates course information
   def update
     if @course.update(course_params)
       redirect_to @course
@@ -37,6 +42,7 @@ class CoursesController < ApplicationController
     end
   end
 
+  # delete a course from database
   def destroy
     @course.destroy
     redirect_to courses_path
@@ -44,11 +50,13 @@ class CoursesController < ApplicationController
   end
 
   private
-
+  # sanitises user inputs in course creation form
   def course_params
     params.require(:course).permit(:title, :sub_title, :description, :price, :image)
   end
 
+  # refactor course finding by id code from above into the below method to run before any action
+  # this save lines of code and keep the code DRY
   def set_course
     @course = Course.find_by_id(params[:id])
 
