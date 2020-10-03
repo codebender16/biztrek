@@ -27,6 +27,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem "faker", "~> 2.11"
 
+gem "aws-sdk-s3", "~> 1.64"
+gem "stripe", "~> 5.22"
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
@@ -45,8 +47,6 @@ group :development do
   gem 'rubocop-rails'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-  gem "aws-sdk-s3", "~> 1.64"
-  gem "stripe", "~> 5.22"
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Adds rspec for testing
   gem 'rspec-rails'
